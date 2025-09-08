@@ -1,17 +1,46 @@
+#define _POSIX_C_SOURCE 200112L
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
 
-/* Use c11 throughout to keep it consistent.
- * Use this compilation command to do a generic compile with no optimizations. 
- * gcc -O0 -std=c11 -o saxpy_scalar saxpy_scalar.c
+/**
+ * gcc -O0 -std=c11 -S saxpy.c -o scalar_saxpy.s
+ * gcc -O0 -std=c11 saxpy.c -o scalar_saxpy
+ * gcc -O0 -std=c11 -fopt-info-vec-optimized saxpy.c > scalar_vec_report.txt
 
- * Use this compilation command to ensure true scalar baseline.
- * gcc -O3 -fno-tree-vectorize -march=native -std=c11 -o saxpy_scalar_only saxpy_scalar_only.c
+ * gcc -O3 -march=native -ffast-math -funroll-loops -std=c11 -S saxpy.c -o simd_saxpy.s
+ * gcc -O3 -march=native -ffast-math -funroll-loops -std=c11 saxpy.c -o simd_saxpy
+ * gcc -O3 -march=native -ffast-math -funroll-loops -std=c11 -fopt-info-vec-optimized saxpy.c > simd_vec_report.txt
  */
 
+/** 
+ * Compilation Flags Explanation
 
+ * -O0 → No optimization
+ * Prevents compiler optimizations, including auto-vectorization; useful for scalar baseline.
+
+ * -O3 → High-level optimization
+ * Enables aggressive optimizations including inlining, loop unrolling, and auto-vectorization.
+
+ * -march=native → Target architecture = host CPU
+ * Lets the compiler generate instructions for your exact CPU, enabling AVX, FMA, SSE, etc.
+
+ * -ffast-math → Fast floating-point math
+ * Allows reordering, contraction (FMA), and ignoring strict IEEE rules for higher performance.
+
+ * -funroll-loops → Loop unrolling
+ * Expands loops to reduce branching overhead, improving SIMD vectorization opportunities.
+
+ * -std=c11 → C standard = C11
+ * Specifies the C language standard; ensures compatibility with your code.
+
+ * -S → Generate assembly
+ * Stops after compilation; produces a .s file with readable assembly code.
+
+ * -fopt-info-vec-optimized → Vectorization report
+ * Outputs information about which loops/functions were vectorized by the compiler.
+ */
 
 /**
  * saxpy_scalar - baseline scalar implementation of SAXPY
