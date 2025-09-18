@@ -5,8 +5,8 @@
 #include <math.h>
 
 /**
- * gcc -O0 -std=c11 -S element.c -o element.s
- * gcc -O0 -std=c11 element.c -o element
+ * gcc -O0 -fno-tree-vectorize -std=c11 -S element.c -o element.s
+ * gcc -O0 -fno-tree-vectorize -std=c11 element.c -o element
  * gcc -O0 -std=c11 -fopt-info-vec-optimized saxpy.c > scalar_vec_report.txt
 
  * gcc -O3 -march=native -ffast-math -funroll-loops -std=c11 -S element.c -o simd_element.s

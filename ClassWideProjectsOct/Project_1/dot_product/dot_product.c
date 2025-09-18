@@ -5,8 +5,8 @@
 #include <math.h>
 
 /**
- * gcc -O0 -std=c11 -S dot_product.c -o dot.s
- * gcc -O0 -std=c11 dot_product.c -o dot
+ * gcc -O0 -fno-tree-vectorize -std=c11 -S dot_product.c -o dot.s
+ * gcc -O0 -fno-tree-vectorize -std=c11 dot_product.c -o dot
  * gcc -O0 -std=c11 -fopt-info-vec-optimized saxpy.c > scalar_vec_report.txt
 
  * gcc -O3 -march=native -ffast-math -funroll-loops -std=c11 -S dot_product.c -o simd_dot.s
@@ -22,8 +22,6 @@ float dot(const float *x, const float *y, size_t n) {
     }
     return s;
 }
-
-
 
 int main(int argc, char **argv){
     // Initialize the size of x and y arrays and set the scalar a value
