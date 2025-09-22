@@ -1,0 +1,7 @@
+/bin/
+/asm/
+/build/
+/data/
+/*.pyc
+*.o
+*~
