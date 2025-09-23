@@ -15,7 +15,7 @@ KERNELS = saxpy dot element
 all: dirs scalar simd
 
 dirs:
-    mkdir -p $(BINDIR) $(ASMDIR) $(REPORTDIR)
+	mkdir -p $(BINDIR) $(ASMDIR) $(REPORTDIR)
 
 # scalar: builds *_scalar executables
 scalar: dirs $(patsubst %,$(BINDIR)/%_scalar,$(KERNELS))
@@ -36,4 +36,4 @@ asm: dirs
     @echo "asm dir: $(ASMDIR)"
 
 clean:
-    rm -rf $(BINDIR) $(ASMDIR) $(REPORTDIR) data/*.csv
+	rm -rf $(BINDIR) $(ASMDIR) $(REPORTDIR) data/*.csv
