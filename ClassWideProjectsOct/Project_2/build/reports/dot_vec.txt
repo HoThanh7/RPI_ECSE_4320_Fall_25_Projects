@@ -1,0 +1,6 @@
+kernels/dot.c:12:26: optimized: loop vectorized using 64 byte vectors
+kernels/dot.c:12:26: optimized: loop vectorized using 32 byte vectors
+kernels/dot.c:52:26: optimized: loop vectorized using 64 byte vectors
+kernels/dot.c:52:26: optimized: loop vectorized using 32 byte vectors
+kernels/dot.c:12:26: optimized: loop vectorized using 64 byte vectors
+kernels/dot.c:12:26: optimized: loop vectorized using 32 byte vectors
