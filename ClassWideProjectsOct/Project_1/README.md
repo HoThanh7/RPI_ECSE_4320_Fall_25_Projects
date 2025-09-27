@@ -10,7 +10,7 @@
 ## 1. Baseline & Correctness (10 pts)
 
 - **Scalar baseline established** (5 pts)  
-  - Kernels: [SAXPY, Dot, Elementwise Multiply, etc.]  
+  - Kernels: SAXPY, Dot, Elementwise Multiply  
   - Validation: [method used, e.g., compare against NumPy or high-precision reference]  
   - Error tolerance: [e.g., relative error < 1e-6]  
   - Results:  
