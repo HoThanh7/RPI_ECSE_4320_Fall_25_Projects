@@ -37,8 +37,18 @@
 
 ## 1. Zero-Queue Baselines
 ### Commands
+The following script will create an Idle_Latency.txt file and append results for the initial baseline test.
+For the AMD Ryzen 7 7800x3D, the tests are configured with the size of each cache level.
 ```bash
-sudo ./mlc --idle_latency -b32      # L1
-sudo ./mlc --idle_latency -b256     # L2
-sudo ./mlc --idle_latency -b8192    # L3
-sudo ./mlc --idle_latency -b1800000 # DRAM
+echo "L1 Cache (64 KB per core)" > ../MLC_Tests/Idle_Latency.txt
+sudo ./mlc --idle_latency -b64 >> ../MLC_Tests/Idle_Latency.txt
+
+echo "L2 Cache (1 MB per core)" >> ../MLC_Tests/Idle_Latency.txt
+sudo ./mlc --idle_latency -b1024 >> ../MLC_Tests/Idle_Latency.txt
+
+echo "L3 Cache (96 MB shared)" >> ../MLC_Tests/Idle_Latency.txt
+sudo ./mlc --idle_latency -b98304 >> ../MLC_Tests/Idle_Latency.txt
+
+echo "DRAM (~1.8 GB)" >> ../MLC_Tests/Idle_Latency.txt
+sudo ./mlc --idle_latency -b1800000 >> ../MLC_Tests/Idle_Latency.txt
+```
