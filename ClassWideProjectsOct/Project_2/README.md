@@ -7,11 +7,11 @@
   - L1: 32 KB / core  
   - L2: 1 MB / core  
   - L3: 96 MB shared (3D V-Cache)  
-  - DRAM: DDR5, measured latency ~76 ns  
-- **OS:** [Your Linux distro & version]  
-- **Kernel:** [Kernel version]  
+  - DRAM: DDR5
+- **OS:** Arch Linux x86_64 
+- **Kernel:** 6.16.8-arch3-1  
 - **MLC version:** 3.11b  
-- **perf version:** [version]  
+- **perf version:** 6.16-1  
 - **Other settings:** CPU governor, SMT state, prefetchers  
 
 ---
@@ -34,13 +34,14 @@
 - Randomize experiment order  
 
 ---
-
-## 1. Zero-Queue Baselines
-### Commands
-Run the following script to researve hugepages for the memory latency checker to be able to perform well:
+## Hugepages 
+When necessary, run the following command to reserve hugepages for the memory latency checker to be able to perform well:
 ```bash
 echo 4000 | sudo tee /proc/sys/vm/nr_hugepages
 ```
+
+## 1. Zero-Queue Baselines
+### Commands
 The following script will create an Idle_Latency.txt file and append results for the initial baseline test.
 For the AMD Ryzen 7 7800x3D, the tests are configured with the size of each cache level.
 ```bash
@@ -86,11 +87,18 @@ Command line parameters: --idle_latency -b1800000
 Using buffer size of 1757.812MiB
 Each iteration took 318.3 base frequency clocks (       75.8    ns)
 ```
+Putting this into a simple table
+| L1 Cache | L2 Cache | L3 Cache | DRAM    |
+| :------- | :------: |:-------: |:-------:|
+| 2.9 ns   | 7.4 ns   | 13.1 ns  | 75.8 ns |
+
+
 
 ## 2. Pattern & granularity sweep
 ### Commands
 
-The following script will run the strides with idle latency
+<!--
+The following script will run the required strides with idle latency
 ```bash
 # L1-size footprint (use ~32KB or 64KB)
 sudo ./mlc --idle_latency -b32      > mlc_idle_b32_seq.txt 2>&1
@@ -108,8 +116,9 @@ sudo ./mlc --idle_latency -b98304 -r> mlc_idle_b98304_rand.txt 2>&1
 sudo ./mlc --idle_latency -b1800000 > mlc_idle_b1800000_seq.txt 2>&1
 sudo ./mlc --idle_latency -b1800000 -r> mlc_idle_b1800000_rand.txt 2>&1
 ```
+-->
 
-The following script is for loaded latency tests
+The following script is for loaded latency tests for strides of 64B, 256B, 1024B. As a quick note, the -b flag is in KB, while the -l flag is used for Bytes. By default loaded latency will do sequential. Using the -r flag, we can also see random access.
 
 <!--
 ```bash

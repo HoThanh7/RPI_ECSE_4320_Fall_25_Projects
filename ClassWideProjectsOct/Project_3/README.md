@@ -1,13 +1,16 @@
 # Project 3 — SSD Performance Profiling
 
 ## System / testbed
-- Host: [make/model, OS + kernel version]
-- CPU: [example: AMD Ryzen 7 7800X3D]
-- RAM: [size + speed]
-- SSD: [vendor/model, interface (NVMe PCIe x4 / SATA), capacity]
-- Test device used: `/dev/nvme0n1` (dedicated test device)  OR test file: `/mnt/bench/fio_testfile`
-- fio version: `$(fio --version)` (record)
-- nvme-cli / smartctl versions recorded
+- **CPU:** [AMD Ryzen 7 7800X3D]
+- **RAM:** [size + speed]
+- **SSD:** [vendor/model, interface (NVMe PCIe x4 / SATA), capacity]
+- **OS:** Arch Linux x86_64 
+- **Kernel:** 6.16.8-arch3-1 
+- **Test device used:** `/dev/nvme0n1` (dedicated test device) with test file: `~/fio-tests/fio_testfile`
+- **fio version:** 3.39
+- **nvme version:** 2.15 (git 2.15)
+- **libnvme version:** 1.15 (git 1.15)
+- **smartctl version:** 7.5 2025-04-30 r5714 [x86_64-linux-6.16.8-arch3-1] (local build)
 
 ## Safety / methodology
 - Tests performed on spare device `/dev/…` / large file on empty FS.
@@ -27,7 +30,7 @@
 - `scripts/collect_drive_info.sh` — SMART & nvme logs.
 - All fio runs write JSON to `data/fio/...`.
 
-## Experiments & results (to fill)
+## Experiments
 1. Zero-queue (QD=1) latencies — table (avg, p95, p99).
 2. Block-size sweep — plot + analysis.
 3. Read/write mixes — plot + analysis.
@@ -52,3 +55,27 @@ sudo ./scripts/qd_sweep.sh /dev/nvme0n1 30
 
 # 5) collect SMART
 sudo ./scripts/collect_drive_info.sh /dev/nvme0n1
+```
+
+## Process
+
+For project 3, either make an empty partition to test the SSD, or make a file to test against.
+
+### Test File
+For this project, a test file will be used. Below is a shell script to make a 20GB file for testing.
+```bash
+mkdir -p ~/fio-tests
+
+# allocate a 20 GB file for testing
+dd if=/dev/zero of=~/fio-tests/testfile bs=1M count=20480 status=progress
+```
+### Tasks 1-4
+After making the test file, tasks 1 through 4 can be run using the Task1_4.sh bash shell script. To use the script, input the path of the test file and the output directory as so:
+```bash
+./Task1_4.sh <testfile> <output_dir>
+```
+
+here are some example command lines:
+```bash
+./Task1_4.sh ~/fio-tests/testfile results/
+```
