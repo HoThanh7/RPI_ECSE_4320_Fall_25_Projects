@@ -14,7 +14,6 @@
   - Validation: [method used, e.g., compare against NumPy or high-precision reference]  
   - Error tolerance: [e.g., relative error < 1e-6]  
   - Results:  
-    ```
 
 
 
