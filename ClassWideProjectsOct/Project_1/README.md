@@ -17,33 +17,33 @@
 
 
 
-    ## Project 2: Performance graphs
+## Project 2: Performance graphs
 
-    The following graphs were generated from the Project 2 kernel benchmarks (scalar and SIMD). They are included here by relative path so they render on GitHub when viewing the repository.
+The following graphs were generated from the Project 2 kernel benchmarks (scalar and SIMD). They are included here by relative path so they render on GitHub when viewing the repository.
 
-    ### SAXPY
+### SAXPY
+<p align="center">
+  <img src="../proj2_results/plots/saxpy_scalar_saxpy_raw.png" alt="saxpy scalar raw" width="320" />
+  <img src="../proj2_results/plots/saxpy_scalar_saxpy_median.png" alt="saxpy scalar median" width="320" />
+  <img src="../proj2_results/plots/saxpy_simd_saxpy_raw.png" alt="saxpy simd raw" width="320" />
+  <img src="../proj2_results/plots/saxpy_simd_saxpy_median.png" alt="saxpy simd median" width="320" />
+</p>
 
-    ![Working Set Latency](../proj2_results/plots/saxpy_scalar_raw.png)
-      <img src="proj2_results/plots/saxpy_scalar_saxpy_median.png" alt="saxpy scalar median" width="320" />
-      <img src="proj2_results/plots/saxpy_simd_saxpy_raw.png" alt="saxpy simd raw" width="320" />
-      <img src="proj2_results/plots/saxpy_simd_saxpy_median.png" alt="saxpy simd median" width="320" />
-    </p>
+### Dot product
+<p align="center">
+  <img src="../proj2_results/plots/dot_scalar_dot_raw.png" alt="dot scalar raw" width="320" />
+  <img src="../proj2_results/plots/dot_scalar_dot_median.png" alt="dot scalar median" width="320" />
+  <img src="../proj2_results/plots/dot_simd_dot_raw.png" alt="dot simd raw" width="320" />
+  <img src="../proj2_results/plots/dot_simd_dot_median.png" alt="dot simd median" width="320" />
+</p>
 
-    ### Dot product
-    <p align="center">
-      <img src="proj2_results/plots/dot_scalar_dot_raw.png" alt="dot scalar raw" width="320" />
-      <img src="proj2_results/plots/dot_scalar_dot_median.png" alt="dot scalar median" width="320" />
-      <img src="proj2_results/plots/dot_simd_dot_raw.png" alt="dot simd raw" width="320" />
-      <img src="proj2_results/plots/dot_simd_dot_median.png" alt="dot simd median" width="320" />
-    </p>
-
-    ### Elementwise multiply
-    <p align="center">
-      <img src="proj2_results/plots/element_scalar_element_raw.png" alt="element scalar raw" width="320" />
-      <img src="proj2_results/plots/element_scalar_element_median.png" alt="element scalar median" width="320" />
-      <img src="proj2_results/plots/element_simd_element_raw.png" alt="element simd raw" width="320" />
-      <img src="proj2_results/plots/element_simd_element_median.png" alt="element simd median" width="320" />
-    </p>
+### Elementwise multiply
+<p align="center">
+  <img src="../proj2_results/plots/element_scalar_element_raw.png" alt="element scalar raw" width="320" />
+  <img src="../proj2_results/plots/element_scalar_element_median.png" alt="element scalar median" width="320" />
+  <img src="../proj2_results/plots/element_simd_element_raw.png" alt="element simd raw" width="320" />
+  <img src="../proj2_results/plots/element_simd_element_median.png" alt="element simd median" width="320" />
+</p>
 
     Example:
     Scalar vs Reference: Max rel error = 3.2e-7
