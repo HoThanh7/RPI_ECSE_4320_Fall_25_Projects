@@ -90,3 +90,50 @@ here are some example command lines:
 | 6        | Sequential Write | 4 KiB      | 23.25            | 23.68            | 28.8             | 38,651 |
 | 7        | Sequential Read  | 128 KiB    | 50.53            | 81.41            | 100.86           | 19,715 |
 | 8        | Sequential Write | 128 KiB    | 48.93            | 48.90            | 50.94            | 17,825 |
+
+### Block-size Sweep
+
+The block-size sweep results (bsweep) are shown below. IOPS and mean latency (µs) were extracted from `fio-results.csv` and plotted.
+
+<p align="center">
+	<img src="plots/bsweep_iops.png" alt="bsweep iops" width="600" />
+</p>
+
+<p align="center">
+	<img src="plots/bsweep_latency_mean_us.png" alt="bsweep latency mean us" width="600" />
+</p>
+
+### Read/Write Mix Sweep
+
+The read/write mix sweep (4 KiB fixed block size, varying read/write mix) results are shown below. Throughput (MiB/s) and latency (mean µs) were collected for the mixtures 100%R, 70/30R/W, and 50/50.
+
+<p align="center">
+	<img src="plots/mix_throughput.png" alt="mix throughput" width="600" />
+</p>
+
+<p align="center">
+	<img src="plots/mix_latency_iops.png" alt="mix latency and iops" width="600" />
+</p>
+
+
+### Queue-depth/parallelism sweep
+
+The queue-depth sweep measures throughput vs latency as concurrency (queue depth / numjobs) increases. The trade-off curve below was generated from `fio-results.csv` and the knee point was detected automatically (see Little's Law summary).
+
+<p align="center">
+	<img src="plots/qd_tradeoff.png" alt="qd tradeoff" width="700" />
+</p>
+
+
+
+Interpretation notes:
+- The knee in the trade-off curve indicates the concurrency level where throughput gain begins to diminish while latency increases rapidly.
+
+### Tail-latency characterization
+
+Tail latency percentiles were extracted for 4 KiB random read at several queue depths (qd = 1, 8, 32, 128). The grouped bar chart below shows p50, p95, p99 and p99.9 for each qd. A CSV summary is available at `plots/tail_latency_summary.csv`.
+
+<p align="center">
+	<img src="plots/tail_latency_percentiles.png" alt="tail latency percentiles" width="800" />
+</p>
+

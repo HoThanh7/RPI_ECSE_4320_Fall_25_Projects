@@ -174,3 +174,28 @@ sudo ./mlc --peak_injection_bandwidth -W2
 # 50/50
 sudo ./mlc --peak_injection_bandwidth -W5
 ```
+
+## Run experiments (quick start)
+1) Run a set of MLC experiments (adjust as needed):
+
+```bash
+cd Project_2/scripts
+./run_mlc.sh ../MLC_Results
+```
+
+2) Collect perf counters for a target command (example: run a small kernel):
+
+```bash
+cd Project_2/scripts
+./collect_perf_counters.sh ../MLC_Results/perf_target.txt -- taskset -c 0 ./my_kernel arg1
+```
+
+3) Quick plotting of zero-queue latency:
+
+```bash
+cd Project_2/scripts
+python3 plot_mlc_results.py
+```
+
+Results and plots will be written into `Project_2/MLC_Results` and `Project_2/data/graphs` respectively. Adjust scripts for your environment and MLC version as necessary.
+```
