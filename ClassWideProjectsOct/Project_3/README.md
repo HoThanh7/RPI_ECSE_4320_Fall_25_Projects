@@ -79,3 +79,14 @@ here are some example command lines:
 ```bash
 ./Task1_4.sh ~/fio-tests/testfile results/
 ```
+### Zero-queue Baselines
+| Workload | I/O Type         | Block Size | Avg Latency (µs) | p95 Latency (µs) | p99 Latency (µs) | IOPS   |
+| -------- | ---------------- | ---------- | ---------------- | ---------------- | ---------------- | ------ |
+| 1        | Random Read      | 4 KiB      | 49.2             | 50.43            | 56.06            | 19,278 |
+| 2        | Random Write     | 4 KiB      | 23.2             | 23.7             | 29.06            | 38,648 |
+| 3        | Random Read      | 128 KiB    | 114.11           | 115.20           | 117.25           | 8,745  |
+| 4        | Random Write     | 128 KiB    | 48.85            | 48.38            | 50.9             | 18,096 |
+| 5        | Sequential Read  | 4 KiB      | 12.27            | 10.56            | 17.28            | 80,338 |
+| 6        | Sequential Write | 4 KiB      | 23.25            | 23.68            | 28.8             | 38,651 |
+| 7        | Sequential Read  | 128 KiB    | 50.53            | 81.41            | 100.86           | 19,715 |
+| 8        | Sequential Write | 128 KiB    | 48.93            | 48.90            | 50.94            | 17,825 |
