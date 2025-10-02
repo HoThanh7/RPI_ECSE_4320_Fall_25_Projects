@@ -16,7 +16,7 @@
   - Results:  
     ```
 
-    ---
+
 
     ## Project 2: Performance graphs
 
@@ -24,7 +24,7 @@
 
     ### SAXPY
 
-      <img src="proj2_results/plots/saxpy_scalar_saxpy_raw.png" alt="saxpy scalar raw" width="320" />
+    ![Working Set Latency](../proj2_results/plots/saxpy_scalar_raw.png)
       <img src="proj2_results/plots/saxpy_scalar_saxpy_median.png" alt="saxpy scalar median" width="320" />
       <img src="proj2_results/plots/saxpy_simd_saxpy_raw.png" alt="saxpy simd raw" width="320" />
       <img src="proj2_results/plots/saxpy_simd_saxpy_median.png" alt="saxpy simd median" width="320" />
@@ -48,7 +48,6 @@
 
     Example:
     Scalar vs Reference: Max rel error = 3.2e-7
-    ```
 - **Reproducible timing methodology** (5 pts)  
   - Core binding: [e.g., taskset -c 0]  
   - CPU governor: [performance / userspace fixed freq]  
