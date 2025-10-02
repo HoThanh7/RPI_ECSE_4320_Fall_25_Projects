@@ -33,6 +33,7 @@ Usage: $0 [OPTIONS] [out_dir]
 Runs MLC experiments and writes results into out_dir (default: ../MLC_Results).
 Options:
   -m, --mlc PATH    Path to the mlc binary (overrides MLC_BIN env)
+	-o, --out DIR     Output directory for results (overrides positional out_dir)
   -h, --help        Show this help and exit
 
 Examples:
@@ -60,6 +61,16 @@ while [[ $# -gt 0 ]]; do
 		-h|--help)
 			usage
 			exit 0
+			;;
+		-o|--out)
+			if [[ -z "${2:-}" ]]; then
+				echo "Error: $1 requires an argument"
+				usage
+				exit 1
+			fi
+			OUT_DIR="$2"
+			OUT_DIR_SET=1
+			shift 2
 			;;
 		--)
 			shift
