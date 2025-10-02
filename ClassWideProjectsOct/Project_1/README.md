@@ -15,6 +15,37 @@
   - Error tolerance: [e.g., relative error < 1e-6]  
   - Results:  
     ```
+
+    ---
+
+    ## Project 2: Performance graphs
+
+    The following graphs were generated from the Project 2 kernel benchmarks (scalar and SIMD). They are included here by relative path so they render on GitHub when viewing the repository.
+
+    ### SAXPY
+    <p align="center">
+      <img src="../Project_2/data/graphs/saxpy_scalar_saxpy_raw.png" alt="saxpy scalar raw" width="320" />
+      <img src="../Project_2/data/graphs/saxpy_scalar_saxpy_median.png" alt="saxpy scalar median" width="320" />
+      <img src="../Project_2/data/graphs/saxpy_simd_saxpy_raw.png" alt="saxpy simd raw" width="320" />
+      <img src="../Project_2/data/graphs/saxpy_simd_saxpy_median.png" alt="saxpy simd median" width="320" />
+    </p>
+
+    ### Dot product
+    <p align="center">
+      <img src="../Project_2/data/graphs/dot_scalar_dot_raw.png" alt="dot scalar raw" width="320" />
+      <img src="../Project_2/data/graphs/dot_scalar_dot_median.png" alt="dot scalar median" width="320" />
+      <img src="../Project_2/data/graphs/dot_simd_dot_raw.png" alt="dot simd raw" width="320" />
+      <img src="../Project_2/data/graphs/dot_simd_dot_median.png" alt="dot simd median" width="320" />
+    </p>
+
+    ### Elementwise multiply
+    <p align="center">
+      <img src="../Project_2/data/graphs/element_scalar_element_raw.png" alt="element scalar raw" width="320" />
+      <img src="../Project_2/data/graphs/element_scalar_element_median.png" alt="element scalar median" width="320" />
+      <img src="../Project_2/data/graphs/element_simd_element_raw.png" alt="element simd raw" width="320" />
+      <img src="../Project_2/data/graphs/element_simd_element_median.png" alt="element simd median" width="320" />
+    </p>
+
     Example:
     Scalar vs Reference: Max rel error = 3.2e-7
     ```
