@@ -14,7 +14,10 @@ This work sits at the intersection of NUMA-aware synchronization, compression-aw
 
 - Heterogeneous memory hierarchy with CXL: Emerging systems integrate DDR, CXL-attached compressed DRAM, and SSD/NAND. Recent IEEE research discusses performance, latency, and coherence challenges under CXL-based memory fabrics and the implications for software tiering ([IEEE, 2024](https://ieeexplore.ieee.org/abstract/document/10764537)). These insights inform our tier latencies and decompression overhead model.
 
-Taken together, these works justify our choice to: (1) co-locate hot locks and data in the fast tier to cut remote/slow paths, (2) use sampling-driven promotion/demotion to manage middle-tier compression costs, and (3) evaluate throughput and tail latency as first-class metrics.
+Taken together, these works justify our choice to: 
+1) Co-locate hot locks and data in the fast tier to cut remote/slow paths 
+2) Use sampling-driven promotion/demotion to manage middle-tier compression costs 
+3) Evaluate throughput and tail latency as first-class metrics
 
 ## 3. Problem Statement & Design
 Problem
