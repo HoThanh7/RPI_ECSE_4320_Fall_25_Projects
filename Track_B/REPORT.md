@@ -131,9 +131,6 @@ Outputs:
 - Table printed to console and saved as CSV: `tiered_sim_results.csv`.
 - Figures: `plot_threads_throughput.png`, `plot_threads_p95_latency.png`, `plot_promotions_vs_hot_fraction.png`.
 
-Viewing Figures in Markdown
-- The figures referenced above are embedded via relative links and render in GitHub and VS Code Markdown preview. Simply open this report to view them inline.
-
 ## 6. Preliminary Results
 Summary observations with TAL vs BASELINE:
 - Throughput: TAL ≥ BASELINE at moderate/high contention (see [plot_threads_throughput.png](plot_threads_throughput.png)).
