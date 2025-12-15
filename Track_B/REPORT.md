@@ -189,5 +189,3 @@ Notes: Values summarized from `tiered_sim_results.csv`; see the CSV for complete
 2) Yuze, L., et al. "Middle-Tier Placement (MTP): Compression-Aware Warm Data Management." VMIL 2025 (camera-ready). https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf
 
 3) IEEE article on CXL-attached memory systems and performance considerations (2024). https://ieeexplore.ieee.org/abstract/document/10764537
-
-(Replace with formal BibTeX entries as needed.)
