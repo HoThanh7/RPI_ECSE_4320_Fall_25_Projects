@@ -1,0 +1,16 @@
+# Exclude local virtualenv and Python version file
+venv/
+.python-version
+
+# Exclude README.md from this folder per request
+README.md
+
+# Python build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Editor/OS noise
+.DS_Store
